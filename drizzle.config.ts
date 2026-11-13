@@ -1,10 +1,8 @@
 import type { Config } from "drizzle-kit";
 
+// Solo genera SQL; las migraciones se aplican con `wrangler d1 migrations apply`.
 export default {
 	schema: "./src/db/schemas/index.ts",
-	out: "./drizzle",
-	dialect: "postgresql",
-	dbCredentials: {
-		url: process.env.DATABASE_URL!,
-	},
+	out: "./migrations",
+	dialect: "sqlite",
 } satisfies Config;

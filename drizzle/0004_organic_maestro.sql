@@ -1,1 +1,0 @@
-ALTER TABLE "guests" RENAME COLUMN "password" TO "code";
