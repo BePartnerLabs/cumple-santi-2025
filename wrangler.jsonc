@@ -1,0 +1,24 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "cumple-santi",
+	"main": "./dist/_worker.js/index.js",
+	"compatibility_date": "2026-10-01",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": "./dist"
+	},
+	// Custom domain: Cloudflare crea el DNS; el CNAME externo debe borrarse antes
+	"routes": [{ "pattern": "cumple-santi.giorgiosaud.io", "custom_domain": true }],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "cumple-santi",
+			"database_id": "REPLACE_WITH_D1_ID",
+			"migrations_dir": "migrations"
+		}
+	],
+	// Astro activa sessions con KV; wrangler lo provisiona en el primer deploy (luego fijar su id)
+	"kv_namespaces": [{ "binding": "SESSION" }],
+	"observability": { "enabled": true }
+}

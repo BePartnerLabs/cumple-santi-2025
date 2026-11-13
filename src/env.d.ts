@@ -1,9 +1,7 @@
-interface ImportMetaEnv {
-	readonly DATABASE_URL: string;
-	readonly PUBLIC_SUPABASE_URL: string;
-	readonly PUBLIC_SUPABASE_ANON_KEY: string;
-}
+/// <reference types="@cloudflare/workers-types" />
 
-interface ImportMeta {
-	readonly env: ImportMetaEnv;
+declare namespace Cloudflare {
+	interface Env {
+		DB: D1Database;
+	}
 }

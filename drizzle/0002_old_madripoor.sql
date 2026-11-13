@@ -1,1 +1,0 @@
-ALTER TABLE "invitados" RENAME TO "guests";
